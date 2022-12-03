@@ -19,7 +19,7 @@ curl -OL https://github.com/ayaneechan/artix_installazione/archive/v1.0.tar.gz
 tar xzf v1.0.tar.gz
 ```
 ```
-cd artix_installazione
+cd v1.0
 ```
 
 Avviare lo script
