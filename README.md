@@ -6,10 +6,10 @@
 > Quentin Crisp "Come diventare vergini"
 
 Installazione via shell del sistema base | procedimento semplice
-Avviare il boot da Artix live usb (LOGIN & PASS = artix) | Usate una iso con grafica integrata
-Connettere il sistema ad internet
-Aprire gparted o disks e formattare il sistema
-Avviare il terminale ed evitare l'auto installazione buggata
+- Avviare il boot da Artix live usb (LOGIN & PASS = artix) | Usate una iso con grafica integrata
+- Connettere il sistema ad internet
+- Aprire gparted o disks e formattare il sistema
+- Avviare il terminale ed evitare l'auto installazione buggata
 
 Aquisire lo script di installazione, estrarre ed entrare nella cartella estratta
 ```
