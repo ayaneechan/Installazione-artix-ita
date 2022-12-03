@@ -1,5 +1,5 @@
 # ARTIX INSTALLAZIONE
-[![](https://img.shields.io/badge/OS-Artix%20Linux-black?logo=Artix+Linux)](https://artixlinux.org/)
+[![](https://img.shields.io/badge/OS-Artix%20Linux-white?logo=Artix+Linux)](https://artixlinux.org/)
 
 > Si spiega che tutte le relazioni richiedono un po' di dare e ricevere.  Questo non è corretto. Qualsiasi relazione richiede che si dia, si dia e si dia e alla fine, quando ci si finisce nella tomba esausti, ci viene detto che non abbiamo dato abbastanza. 
 >
