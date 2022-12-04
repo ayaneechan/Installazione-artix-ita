@@ -15,7 +15,7 @@ curl -OL https://github.com/ayaneechan/artix-ita/archive/artix-ita-v1.0.tar.gz
 tar xzf v1.0.tar.gz
 ```
 ```
-cd artix-ita-v1.0.tar.gz
+cd artix-ita-1.0.tar.gz
 ```
 ```
 bash ./install.sh
