@@ -1,11 +1,7 @@
 # ARTIX INSTALLAZIONE
 [![](https://img.shields.io/badge/Artix-Linux%20OS-blue?style=for-the-badge&logo=Artix+Linux)](https://artixlinux.org/)
 
-> Si spiega che tutte le relazioni richiedono un po' di dare e ricevere.  Questo non è corretto. Qualsiasi relazione richiede che si dia, si dia e si dia e alla fine, quando ci si finisce nella tomba esausti, ci viene detto che non abbiamo dato abbastanza. 
->
-> Quentin Crisp "Come diventare vergini"
-
-Installazione via shell del sistema base | procedimento semplice
+Installazione via shell del sistema base
 - Avviare il boot da Artix live usb (LOGIN & PASS = artix) | Usate una iso con grafica integrata
 - Connettere il sistema ad internet
 - Aprire gparted o disks e formattare il sistema
@@ -27,7 +23,7 @@ Avviare lo script
 ./install.sh
 ```
 
-Quando si aprono i comandi | la guida segue openrc, ma nessuno vieta di installare dinit
+Quando si aprono i comandi: (la guida segue openrc, ma nessuno vieta di installare dinit)
 (openrc/dinit)
 ```
 openrc
@@ -64,7 +60,9 @@ ora aspettate, deve scaricare tutti i pacchetti | infine riavviate
 ```
 sudo reboot
 ```
-togliere immediatamente la chiavetta usb | *consigliato
+togliere immediatamente la chiavetta usb *consigliato
+
+# Configurazione post-installazione
 
 Modificare il file e aggiungere le repo dopo [galaxy] | basta un server solo
 ```
