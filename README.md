@@ -12,7 +12,7 @@
 curl -OL https://github.com/ayaneechan/artix_installazione/archive/Installazione-artix-ita-1.0.tar.gz
 ```
 ```
-tar xzf Installazione-artix-ita-1.0.tar.gz.tar.gz
+tar xzf Installazione-artix-ita-1.0.tar.gz
 ```
 ```
 cd Installazione-artix-ita-1.0.tar.gz
