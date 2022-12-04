@@ -9,18 +9,17 @@
 
 ### Aquisire lo script di installazione, estrarre ed entrare nella cartella estratta
 ```
-curl -OL https://github.com/ayaneechan/artix_installazione/archive/v1.0.tar.gz
+curl -OL https://github.com/ayaneechan/artix_installazione/archive/Installazione-artix-ita-1.0.tar.gz
 ```
 ```
-tar xzf v1.0.tar.gz
+tar xzf Installazione-artix-ita-1.0.tar.gz.tar.gz
 ```
 ```
-cd v1.0
+cd Installazione-artix-ita-1.0.tar.gz
 ```
-
 ### Avviare lo script
 ```
-./install.sh
+sudo ./install.sh
 ```
 
 ## Quando si aprono i comandi: (la guida segue openrc)
