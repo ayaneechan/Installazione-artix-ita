@@ -35,7 +35,8 @@ sudo reboot
 ```
 # Configurazione post-installazione
 ## Per loggare 
->Utente=root%20%20Password=la vostra password
+>Utente=root <br />
+>Password=la vostra password
 ### Ora entrate nel terminale per le ultime configurazioni
 Aprite il file di configurazione di pacman
 ```
