@@ -1,6 +1,6 @@
 # ARTIX INSTALLAZIONE MANUALE (openrc; ext4)
 [![](https://img.shields.io/badge/Artix-Linux%20OS-blue?style=for-the-badge&logo=Artix+Linux)](https://artixlinux.org/)
-> Copyleft [![](https://commons.wikimedia.org/wiki/File:Copyleft.svg)] Aya Corona 2022
+> Copyleft (ↄ) Aya Corona 2022
 
 ## Nuova installazione di Artix da un supporto avviabile
 
