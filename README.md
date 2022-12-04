@@ -2,68 +2,45 @@
 [![](https://img.shields.io/badge/Artix-Linux%20OS-blue?style=for-the-badge&logo=Artix+Linux)](https://artixlinux.org/)
 
 ## Installazione via shell del sistema base
-- Avviare il boot da Artix live usb (LOGIN & PASS = artix) | Usate una iso con grafica integrata
+- Avviare il boot da Artix live usb (LOGIN & PASS = artix)
 - Connettere il sistema ad internet
 - Aprire gparted o disks e formattare il sistema
 - Avviare il terminale ed evitare l'auto installazione buggata
 
 ### Aquisire lo script di installazione, estrarre ed entrare nella cartella estratta
 ```
-curl -OL https://github.com/ayaneechan/artix_installazione/archive/Installazione-artix-ita-1.0.tar.gz
+curl -OL https://github.com/ayaneechan/artix-ita/archive/artix-ita-v1.0.tar.gz
 ```
 ```
-tar xzf Installazione-artix-ita-1.0.tar.gz
+tar xzf v1.0.tar.gz
 ```
 ```
-cd Installazione-artix-ita-1.0.tar.gz
+cd artix-ita-v1.0.tar.gz
 ```
 ### Avviare lo script
 ```
-sudo ./install.sh
+bash ./install.sh
 ```
-
-## Quando si aprono i comandi: (la guida segue openrc)
-### (openrc/dinit)
-```
-openrc
-```
-### Mettere il disco dove volete installare la distro es. /dev/sda
-```
-/dev/sda
-```
-### Partizione di swap (0=senza)
-```
-4
-```
-### Filesystem (quello che preferite es. ext4)
-```
-ext4
-```
-### Cryptazione (si o no)
-```
-y
-```
-### Timezone
-```
-Europe/Rome
-```
-### hostname (es. fag-army)
-```
-fag-army
-```
-### password di root (voi mettetene una sicura)
-```
-1234
-```
-### ora aspettate (deve scaricare tutti i pacchetti), infine riavviate
+## ora aspettate (deve scaricare tutti i pacchetti), infine riavviate
 ```
 sudo reboot
 ```
-### togliere immediatamente la chiavetta usb *consigliato
-
+### Avvio automatico lightdm
+```
+sudo rc-update add lightdm default
+```
+### riavvio
+```
+sudo reboot
+```
 # Configurazione post-installazione
-
-### Modificare il file e aggiungere le repo dopo [galaxy] | basta un server solo
+## Per loggare Utente=root Password=<la vostra password>
+### Ora entrate nel terminale per le ultime configurazioni
+Aprite il file di configurazione di pacman
+```
+sudo nano /etc/pacman.conf
+```
+Modificare il file e aggiungere le repo dopo [galaxy]
 ```
 [universe]
 Server = https://universe.artixlinux.org/$arch
@@ -101,14 +78,6 @@ sudo pacman -Syu
 ### Installare un text editor (artix consiglia 'nano')
 ```
 sudo pacman -S nano
-```
-### Per sicurezza installare questi pacchetti
-```
-sudo pacman dialog dosfstools 
-```
-### Installare le utility audio
-```
-pacman -S pipewire pipewire-pulse alsa-utils
 ```
 ### Aggiungere proprio utente (es. sonozoccola)
 ```
