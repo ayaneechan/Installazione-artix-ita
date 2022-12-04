@@ -1,13 +1,13 @@
 # ARTIX INSTALLAZIONE
 [![](https://img.shields.io/badge/Artix-Linux%20OS-blue?style=for-the-badge&logo=Artix+Linux)](https://artixlinux.org/)
 
-### Installazione via shell del sistema base
+## Installazione via shell del sistema base
 - Avviare il boot da Artix live usb (LOGIN & PASS = artix) | Usate una iso con grafica integrata
 - Connettere il sistema ad internet
 - Aprire gparted o disks e formattare il sistema
 - Avviare il terminale ed evitare l'auto installazione buggata
 
-Aquisire lo script di installazione, estrarre ed entrare nella cartella estratta
+### Aquisire lo script di installazione, estrarre ed entrare nella cartella estratta
 ```
 curl -OL https://github.com/ayaneechan/artix_installazione/archive/v1.0.tar.gz
 ```
@@ -18,13 +18,13 @@ tar xzf v1.0.tar.gz
 cd v1.0
 ```
 
-Avviare lo script
+### Avviare lo script
 ```
 ./install.sh
 ```
 
-Quando si aprono i comandi: (la guida segue openrc, ma nessuno vieta di installare dinit)
-(openrc/dinit)
+## Quando si aprono i comandi: (la guida segue openrc, ma nessuno vieta di installare dinit)
+### (openrc/dinit)
 ```
 openrc
 ```
