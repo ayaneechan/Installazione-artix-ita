@@ -52,19 +52,19 @@ Server = https://artixlinux.qontinuum.space/artixlinux/universe/os/$arch
 Server = https://mirror1.cl.netactuate.com/artix/universe/$arch
 Server = https://ftp.crifo.org/artix-universe/
 ```
-### Aggiornare le repo
+Aggiornare le repo
 ```
 sudo pacman -Syu 
 ```
-### Aggiungere il supporto ad arch
+Aggiungere il supporto ad arch
 ```
 sudo pacman -S artix-archlinux-support
 ```
-## aggiungere le repo di https://wiki.artixlinux.org/Main/Repositories
+Aggiungere le repo di https://wiki.artixlinux.org/Main/Repositories
 ```
 sudo nano /etc/pacman.conf
 ```
-### aggiungere in fondo al file o dopo le repo #Artix per non creare confusione
+Aggiungere in fondo al file o dopo le repo #Artix per non creare confusione
 ```
 #Archlinux
 [extra]
@@ -73,22 +73,22 @@ Include = /etc/pacman.d/mirrorlist-arch
 [community]
 Include = /etc/pacman.d/mirrorlist-arch
 ```
-### Aggiornare le repo
+Aggiornare le repo
 ```
 sudo pacman -Syu 
 ```
-### Installare un text editor (artix consiglia 'nano')
+Installare un text editor (artix consiglia 'nano')
 ```
 sudo pacman -S nano
 ```
-### Aggiungere proprio utente (es. sonozoccola)
+Aggiungere proprio utente (es. sonozoccola)
 ```
 useradd -mG wheel sonozoccola
 ```
 ```
 passwd sonozoccola
 ```
-### Aggiungere i permessi di root al vostro utente
+Aggiungere i permessi di root al vostro utente
 ```
 EDITOR=nano visudo
 ```
