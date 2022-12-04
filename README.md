@@ -23,7 +23,7 @@ cd v1.0
 ./install.sh
 ```
 
-## Quando si aprono i comandi: (la guida segue openrc, ma nessuno vieta di installare dinit)
+## Quando si aprono i comandi: (la guida segue openrc)
 ### (openrc/dinit)
 ```
 openrc
