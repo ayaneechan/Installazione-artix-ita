@@ -17,24 +17,24 @@ tar xzf v1.0.tar.gz
 ```
 cd artix-ita-v1.0.tar.gz
 ```
-### Avviare lo script
 ```
 bash ./install.sh
 ```
-## ora aspettate (deve scaricare tutti i pacchetti), infine riavviate
+ora aspettate (deve scaricare tutti i pacchetti), infine riavviate
 ```
 sudo reboot
 ```
-### Avvio automatico lightdm
+### Primo avvio
+Impostate lightdm
 ```
 sudo rc-update add lightdm default
 ```
-### riavvio
+Riavvio
 ```
 sudo reboot
 ```
-# Configurazione post-installazione
-## Per loggare 
+## Configurazione post-installazione
+Per loggare 
 >Utente=root <br />
 >Password=la vostra password
 ### Ora entrate nel terminale per le ultime configurazioni
