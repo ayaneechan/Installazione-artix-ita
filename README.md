@@ -28,43 +28,43 @@ cd v1.0
 ```
 openrc
 ```
-Disk install to | mettere il disco dove volete installare la distro es. /dev/sda
+### Mettere il disco dove volete installare la distro es. /dev/sda
 ```
 /dev/sda
 ```
-Partizione di swap | si consiglia almeno 4gb o non metterla proprio in caso scrivere 0, io metto 6gb
+### Partizione di swap (0=senza)
 ```
-6
+4
 ```
-Filesystem | quello che preferite es. ext4
+### Filesystem (quello che preferite es. ext4)
 ```
 ext4
 ```
-Cryptazione, si o no | io la metto
+### Cryptazione (si o no)
 ```
 y
 ```
-inserite la vostra password due volte | Regione/Citta
+### Timezone
 ```
 Europe/Rome
 ```
-hostname il vostro | es, fag-army
+### hostname (es. fag-army)
 ```
 fag-army
 ```
-password di root | voi mettetene una sicura ps. potete cambiarla sempre
+### password di root (voi mettetene una sicura)
 ```
 1234
 ```
-ora aspettate, deve scaricare tutti i pacchetti | infine riavviate
+### ora aspettate (deve scaricare tutti i pacchetti), infine riavviate
 ```
 sudo reboot
 ```
-togliere immediatamente la chiavetta usb *consigliato
+### togliere immediatamente la chiavetta usb *consigliato
 
 # Configurazione post-installazione
 
-Modificare il file e aggiungere le repo dopo [galaxy] | basta un server solo
+### Modificare il file e aggiungere le repo dopo [galaxy] | basta un server solo
 ```
 [universe]
 Server = https://universe.artixlinux.org/$arch
@@ -74,19 +74,19 @@ Server = https://artixlinux.qontinuum.space/artixlinux/universe/os/$arch
 Server = https://mirror1.cl.netactuate.com/artix/universe/$arch
 Server = https://ftp.crifo.org/artix-universe/
 ```
-Aggiornare le repo
+### Aggiornare le repo
 ```
 sudo pacman -Syu 
 ```
-Aggiungere il supporto ad arch
+### Aggiungere il supporto ad arch
 ```
 sudo pacman -S artix-archlinux-support
 ```
-aggiungere le repo di https://wiki.artixlinux.org/Main/Repositories in particolare arch le altre a piacimento 
+## aggiungere le repo di https://wiki.artixlinux.org/Main/Repositories
 ```
 sudo nano /etc/pacman.conf
 ```
-aggiungere in fondo al file o dopo le repo #Artix per non creare confusione
+### aggiungere in fondo al file o dopo le repo #Artix per non creare confusione
 ```
 #Archlinux
 [extra]
@@ -95,60 +95,83 @@ Include = /etc/pacman.d/mirrorlist-arch
 [community]
 Include = /etc/pacman.d/mirrorlist-arch
 ```
-
-Aggiornare le repo
+### Aggiornare le repo
 ```
 sudo pacman -Syu 
 ```
-Passiamo ad installare i pacchetti mancanti
-```
-sudo pacman -S base-devel linux-firmware 
-```
-Installare un text editor | artix consiglia 'nano'; potere usare anche altri editor come vim ecc.
+### Installare un text editor (artix consiglia 'nano')
 ```
 sudo pacman -S nano
 ```
-Installare i Microcode del vostro processore intel o amd
-
-AMD
+### Per sicurezza installare questi pacchetti
 ```
-sudo pacman -S amd-ucode
+sudo pacman dialog dosfstools 
 ```
-Intel
+### Installare le utility audio
 ```
-sudo pacman -S intel-ucode
+pacman -S pipewire pipewire-pulse alsa-utils
 ```
-Per sicurezza anche se dovessero essere presenti installare questi pacchetti
-```
-sudo pacman wpa_supplicant dialog dosfstools 
-```
-Installare le utility audio
-```
-pacman -S pulseaudio alsa-utils
-```
-Aggiungere proprio utente | es. sonozoccola
+### Aggiungere proprio utente (es. sonozoccola)
 ```
 useradd -mG wheel sonozoccola
 ```
 ```
 passwd sonozoccola
 ```
-Aggiungere i permessi di root | avete installato 'nano' come editor seguendo la guida, con un altro editor cambiare il comando di conseguenza
+### Aggiungere i permessi di root
 ```
 EDITOR=nano visudo
 ```
-Togliere il cancelletto da %wheel ALL=(ALL) ALL
+### Togliere il cancelletto da %wheel ALL=(ALL) ALL
 
-
-Installiamo la parte grafica | date si a tutto per convenienza; se sapete cosa state facendo potete non installare alcuni paccheti inutili (altrimenti no)
+### Installiamo la parte grafica; se sapete cosa state facendo potete non installare alcuni paccheti inutili (altrimenti no)
 ```
 sudo pacman -S xorg xf86-video-amdgpu lightdm-openrc lightdm-gtk-greeter mate mate-extra system-config-printer connman-gtk
 ```
-Installare elogind con relativo pacchetto per la vostra distro | openrc in questo caso
-```
-pacman -S elogind elogind-openrc
-```
-Attivate il vostro display manager
+### Attivate il vostro display manager
 ```
 sudo rc-update add lightdm default
+```
+
+# Riavviate e divertitevi
+## Alcuni programmi utili:
+### Gnome disks (gestione dischi)
+```
+sudo pacman -S gnome-disk-utility
+```
+### Pamac (gestore software)
+```
+sudo pacman -S pamac
+```
+### Dino (xmpp client)
+```
+sudo pacman -S dino
+```
+### Kleopatra (chiavi openPGP)
+```
+sudo pacman -S kleopatra
+```
+### Telegram
+```
+sudo pacman -S telegram-desktop
+```
+### Libreoffice (office)
+```
+sudo pacman -S libreoffice
+```
+### Mpv (video player)
+```
+sudo pacman -S mpv
+```
+### Freetube (client YT privato)
+```
+sudo pacman -S freetube
+```
+### Evolution (mail manager)
+```
+sudo pacman -S evolution
+```
+### Librewolf (Browser privato)
+```
+sudo pacman -S librewolf
 ```
