@@ -1,18 +1,6 @@
-#!/bin/sh -e
-# Questo file fa parte di artix-installazione.
-#
-# artix-installazione è software libero: è possibile ridistribuirlo e/o modificarlo
-# sotto i termini della GNU General Public License pubblicata dalla
-# dalla Free Software Foundation, sia la versione 3 della licenza, sia
-# (a vostra scelta) qualsiasi versione successiva.
-#
-# artix-installazione è distribuito nella speranza che possa essere utile, ma
-# SENZA ALCUNA GARANZIA; senza nemmeno la garanzia implicita di
-# COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Si veda la Licenza Pubblica Generale GNU
-# General Public License per maggiori dettagli.
-#
-# Dovreste aver ricevuto una copia della Licenza Pubblica Generica GNU
-# insieme ad artix-installer. In caso contrario, vedere <https://www.gnu.org/licenses/>.
+# ##!/bin/sh
+# Un installer per Artix Linux; Copyright (c) 2022 Aya Corona
+# Questo file fa parte di Installazione-artix-ita. Installazione-artix-ita è software libero: è possibile ridistribuirlo e/o modificarlo sotto i termini della GNU General Public License pubblicata dalla dalla Free Software Foundation, sia la versione 3 della licenza, sia (a vostra scelta) qualsiasi versione successiva. Installazione-artix-ita è distribuito nella speranza che possa essere utile, ma SENZA ALCUNA GARANZIA; senza nemmeno la garanzia implicita di COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Si veda la Licenza Pubblica Generale GNU General Public License per maggiori dettagli. Dovreste aver ricevuto una copia della Licenza Pubblica Generica GNU insieme ad Installazione-artix-ita. In caso contrario, vedere <https://www.gnu.org/licenses/>.
 
 # Partizione disco
 if [[ $my_fs == "ext4" ]]; then
@@ -73,5 +61,5 @@ mount $part1 /mnt/boot
 
 # Installazione base di sistema e del kernel
 basestrap /mnt base base-devel $my_init elogind-$my_init $fs_pkgs efibootmgr grub $ucode dhcpcd wpa_supplicant connman-$my_init
-basestrap /mnt linux linux-firmware linux-headers mkinitcpio
+basestrap /mnt linux linux-headers linux-zen linux-zen-headers linux-firmware mkinitcpio
 fstabgen -U /mnt > /mnt/etc/fstab
