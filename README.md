@@ -1,5 +1,8 @@
 # ARTIX INSTALLAZIONE MANUALE
-- OpenRc - ext4 - mate-desktop
+- OpenRc 
+- ext4
+- mate-desktop
+
 [![](https://img.shields.io/badge/Artix-Linux%20OS-blue?style=for-the-badge&logo=Artix+Linux)](https://artixlinux.org/)
 > Copyleft (ↄ) Aya Corona 2022
 
