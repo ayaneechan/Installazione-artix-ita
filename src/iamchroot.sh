@@ -1,4 +1,5 @@
-# ##!/bin/sh
+#!/bin/sh -e
+#
 # Un installer per Artix Linux; Copyright (c) 2022 Aya Corona
 # Questo file fa parte di Installazione-artix-ita. Installazione-artix-ita è software libero: è possibile ridistribuirlo e/o modificarlo sotto i termini della GNU General Public License pubblicata dalla dalla Free Software Foundation, sia la versione 3 della licenza, sia (a vostra scelta) qualsiasi versione successiva. Installazione-artix-ita è distribuito nella speranza che possa essere utile, ma SENZA ALCUNA GARANZIA; senza nemmeno la garanzia implicita di COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Si veda la Licenza Pubblica Generale GNU General Public License per maggiori dettagli. Dovreste aver ricevuto una copia della Licenza Pubblica Generica GNU insieme ad Installazione-artix-ita. In caso contrario, vedere <https://www.gnu.org/licenses/>.
 
