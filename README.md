@@ -34,7 +34,7 @@ Riavvio
 sudo reboot
 ```
 ## Configurazione post-installazione
-Per loggare 
+### Per loggare 
 >Utente=root <br />
 >Password=la vostra password
 ### Ora entrate nel terminale per le ultime configurazioni
@@ -88,22 +88,11 @@ useradd -mG wheel sonozoccola
 ```
 passwd sonozoccola
 ```
-### Aggiungere i permessi di root
+### Aggiungere i permessi di root al vostro utente
 ```
 EDITOR=nano visudo
 ```
-### Togliere il cancelletto da %wheel ALL=(ALL) ALL
-
-### Installiamo la parte grafica; se sapete cosa state facendo potete non installare alcuni paccheti inutili (altrimenti no)
-```
-sudo pacman -S xorg xf86-video-amdgpu lightdm-openrc lightdm-gtk-greeter mate mate-extra system-config-printer connman-gtk
-```
-### Attivate il vostro display manager
-```
-sudo rc-update add lightdm default
-```
-
-# Riavviate e divertitevi
+Togliere il cancelletto da %wheel ALL=(ALL) ALL
 ## Alcuni programmi utili:
 ### Gnome disks (gestione dischi)
 ```
