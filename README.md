@@ -1,4 +1,4 @@
-# ARTIX INSTALLAZIONE MANUALE
+# ARTIX INSTALLAZIONE MANUALE (openrc; ext4)
 [![](https://img.shields.io/badge/Artix-Linux%20OS-blue?style=for-the-badge&logo=Artix+Linux)](https://artixlinux.org/)
 
 ## Nuova installazione di Artix da un supporto avviabile
@@ -49,37 +49,55 @@ dumpkeys_charset=""
 ### Partizionare il disco rigido cfdisk: (es. /dev/sda ; /dev/nvme0n1 ; /dev/nvme0n1p1)
 - 512MB Efi system  (*minimo)
 - 4GB swap          (*minimo)
-- il resto filesystem ext4 oppure btrfs
+- il resto filesystem ext4
 ```
  cfdisk /dev/sda
 ```
-### Partizione di swap (0=senza)
+### Formattare le partizioni
+Partizione di boot
 ```
-4
+ mkfs.fat -F 32 /dev/sda1
 ```
-### Filesystem (quello che preferite es. ext4)
 ```
-ext4
+ fatlabel /dev/sda1 BOOT
 ```
-### Cryptazione (si o no)
+Partizione di swap
 ```
-y
+ swapon /dev/disk/sda2/SWAP      
 ```
-### Timezone
+Partizione di root
 ```
-Europe/Rome
+ mkfs.ext4 -L ROOT /dev/sda3
 ```
-### hostname (es. fag-army)
+### Montare le partizioni
+Montare partizione di swap
 ```
-fag-army
+ mkswap -L SWAP /dev/sda2
 ```
-### password di root (voi mettetene una sicura)
+Montare partizione di root
 ```
-1234
+ mount /dev/disk/by-label/ROOT /mnt
 ```
-### ora aspettate (deve scaricare tutti i pacchetti), infine riavviate
+Creare directory boot
 ```
-sudo reboot
+  mkdir /mnt/boot 
+```
+Montare directory boot
+```
+ mount /dev/disk/sda1/BOOT /mnt/boot 
+```
+### Connettere ad Internet
+Per controllo
+```
+ ping artixlinux.org
+```
+Installare il sistema di base
+```
+ basestrap /mnt base base-devel openrc elogind-openrc
+```
+Aggiornare l'orologio di sistema
+```
+ rc-service ntpd start
 ```
 ### togliere immediatamente la chiavetta usb *consigliato
 
