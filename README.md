@@ -1,36 +1,57 @@
 # ARTIX INSTALLAZIONE MANUALE
 [![](https://img.shields.io/badge/Artix-Linux%20OS-blue?style=for-the-badge&logo=Artix+Linux)](https://artixlinux.org/)
 
-## Installazione via shell del sistema base
-- Avviare il boot da Artix live usb (LOGIN & PASS = artix) | Usate una iso con grafica integrata
-- Connettere il sistema ad internet
-- Aprire gparted o disks e formattare il sistema
-- Avviare il terminale ed evitare l'auto installazione buggata
+## Nuova installazione di Artix da un supporto avviabile
 
-### Aquisire lo script di installazione, estrarre ed entrare nella cartella estratta
-```
-curl -OL https://github.com/ayaneechan/artix_installazione/archive/v1.0.tar.gz
-```
-```
-tar xzf v1.0.tar.gz
-```
-```
-cd v1.0
-```
+Artix può essere installato tramite la console o installer. L'installazione tramite installer è abbastanza semplice, ma noi effettueremo la procedura di installazione tramite console. Le immagini di installazione sono confermate per funzionare sia su sistemi BIOS che UEFI. 
 
-### Avviare lo script
+### Impostare il layout della tastiera
+Per verificare i tipi di layout disponibili: 
 ```
-./install.sh
+ ls -R /usr/share/kbd/keymaps
 ```
+Digitare quindi il nome del layout senza l'estensione. Ad esempio, per impostare il layout italiano(Italia), digitare: 
+```
+ loadkeys it
+```
+Questo imposta il layout di tastiera selezionato solo nella tty corrente e solo fino al riavvio. Per rendere permanente l'impostazione, è necessario modificare /etc/conf.d/keymaps nel sistema installato. 
+```
+# Use keymap to specify the default console keymap.  There is a complete tree
+# of keymaps in /usr/share/keymaps to choose from.
+keymap="it"
 
-## Quando si aprono i comandi: (la guida segue openrc)
-### (openrc/dinit)
+# Should we first load the 'windowkeys' console keymap?  Most x86 users will
+# say "yes" here.  Note that non-x86 users should leave it as "no".
+# Loading this keymap will enable VT switching (like ALT+Left/Right)
+# using the special windows keys on the linux console.
+windowkeys="NO"
+
+# The maps to load for extended keyboards.  Most users will leave this as is.
+extended_keymaps=""
+#extended_keymaps="backspace keypad euro2"
+
+# Tell dumpkeys(1) to interpret character action codes to be
+# from the specified character set.
+# This only matters if you set unicode="yes" in /etc/rc.conf.
+# For a list of valid sets, run `dumpkeys --help`
+dumpkeys_charset=""
+
+# Some fonts map AltGr-E to the currency symbol instead of the Euro.
+# To fix this, set to "yes"
 ```
-openrc
+È utile anche impostare /etc/vconsole.conf, che può essere simile a questo: 
 ```
-### Mettere il disco dove volete installare la distro es. /dev/sda
+ # FONT_MAP=8859-1_to_uni
+ # FONT=lat1-16
+ KEYMAP=it
 ```
-/dev/sda
+## Partitione del disco (BIOS)
+### Partizionare il disco rigido cfdisk: (es. /dev/sda ; /dev/nvme0n1 ; /dev/nvme0n1p1)
+- 512MB Efi system  (*minimo)
+- 4GB swap          (*minimo)
+- il resto filesystem ext4 oppure btrfs
+```
+ cfdisk /dev/sda
 ```
 ### Partizione di swap (0=senza)
 ```
