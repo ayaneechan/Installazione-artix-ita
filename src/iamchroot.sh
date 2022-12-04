@@ -1,28 +1,16 @@
-# !/bin/sh -e
-# Questo file fa parte di artix-installazione.
-#
-# artix-installazione è software libero: è possibile ridistribuirlo e/o modificarlo
-# sotto i termini della GNU General Public License pubblicata dalla
-# dalla Free Software Foundation, sia la versione 3 della licenza, sia
-# (a vostra scelta) qualsiasi versione successiva.
-#
-# artix-installazione è distribuito nella speranza che possa essere utile, ma
-# SENZA ALCUNA GARANZIA; senza nemmeno la garanzia implicita di
-# COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Si veda la Licenza Pubblica Generale GNU
-# General Public License per maggiori dettagli.
-#
-# Dovreste aver ricevuto una copia della Licenza Pubblica Generica GNU
-# insieme ad artix-installer. In caso contrario, vedere <https://www.gnu.org/licenses/>.
+# ##!/bin/sh
+# Un installer per Artix Linux; Copyright (c) 2022 Aya Corona
+# Questo file fa parte di Installazione-artix-ita. Installazione-artix-ita è software libero: è possibile ridistribuirlo e/o modificarlo sotto i termini della GNU General Public License pubblicata dalla dalla Free Software Foundation, sia la versione 3 della licenza, sia (a vostra scelta) qualsiasi versione successiva. Installazione-artix-ita è distribuito nella speranza che possa essere utile, ma SENZA ALCUNA GARANZIA; senza nemmeno la garanzia implicita di COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Si veda la Licenza Pubblica Generale GNU General Public License per maggiori dettagli. Dovreste aver ricevuto una copia della Licenza Pubblica Generica GNU insieme ad Installazione-artix-ita. In caso contrario, vedere <https://www.gnu.org/licenses/>.
 
-# Cose noiose da fare
+# Settaggio data & ora
 ln -sf /usr/share/zoneinfo/$region_city /etc/localtime
 hwclock --systohc
 
-# Localizzazione
-printf "en_US.UTF-8 UTF-8\n" >> /etc/locale.gen
+# Impostazione lingua & tastiera in italiano
+printf "it_IT.UTF-8 UTF-8\n" >> /etc/locale.gen
 locale-gen
-printf "LANG=en_US.UTF-8\n" > /etc/locale.conf
-printf "KEYMAP=us\n" > /etc/vconsole.conf
+printf "LANG=it_IT.UTF-8\n" > /etc/locale.conf
+printf "KEYMAP=it\n" > /etc/vconsole.conf
 
 # Hostname
 printf "$my_hostname\n" > /etc/hostname
