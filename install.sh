@@ -1,5 +1,8 @@
-# !/bin/sh -e
-# Questo file fa parte di artix-installazione.
+# Un installer per Artix Linux
+#
+# Copyright (c) 2022 Aya Corona
+#
+# Questo file fa parte di artix_install.
 #
 # artix-installazione è software libero: è possibile ridistribuirlo e/o modificarlo
 # sotto i termini della GNU General Public License pubblicata dalla
