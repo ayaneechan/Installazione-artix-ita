@@ -34,7 +34,9 @@ sudo rc-update add lightdm default
 sudo reboot
 ```
 # Configurazione post-installazione
-## Per loggare Utente=root Password=<la vostra password>
+## Per loggare 
+>Utente=root 
+>Password=la vostra password
 ### Ora entrate nel terminale per le ultime configurazioni
 Aprite il file di configurazione di pacman
 ```
