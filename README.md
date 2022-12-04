@@ -1,4 +1,4 @@
-# ARTIX INSTALLAZIONE
+# ARTIX INSTALLAZIONE MANUALE
 [![](https://img.shields.io/badge/Artix-Linux%20OS-blue?style=for-the-badge&logo=Artix+Linux)](https://artixlinux.org/)
 
 ## Installazione via shell del sistema base
