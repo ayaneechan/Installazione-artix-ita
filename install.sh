@@ -1,21 +1,6 @@
-# Un installer per Artix Linux
-#
-# Copyright (c) 2022 Aya Corona
-#
-# Questo file fa parte di artix_install.
-#
-# artix-installazione è software libero: è possibile ridistribuirlo e/o modificarlo
-# sotto i termini della GNU General Public License pubblicata dalla
-# dalla Free Software Foundation, sia la versione 3 della licenza, sia
-# (a vostra scelta) qualsiasi versione successiva.
-#
-# artix-installazione è distribuito nella speranza che possa essere utile, ma
-# SENZA ALCUNA GARANZIA; senza nemmeno la garanzia implicita di
-# COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Si veda la Licenza Pubblica Generale GNU
-# General Public License per maggiori dettagli.
-#
-# Dovreste aver ricevuto una copia della Licenza Pubblica Generica GNU
-# insieme ad artix-installer. In caso contrario, vedere <https://www.gnu.org/licenses/>.
+##!/bin/sh
+# Un installer per Artix Linux; Copyright (c) 2022 Aya Corona
+# Questo file fa parte di Installazione-artix-ita. Installazione-artix-ita è software libero: è possibile ridistribuirlo e/o modificarlo sotto i termini della GNU General Public License pubblicata dalla dalla Free Software Foundation, sia la versione 3 della licenza, sia (a vostra scelta) qualsiasi versione successiva. Installazione-artix-ita è distribuito nella speranza che possa essere utile, ma SENZA ALCUNA GARANZIA; senza nemmeno la garanzia implicita di COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Si veda la Licenza Pubblica Generale GNU General Public License per maggiori dettagli. Dovreste aver ricevuto una copia della Licenza Pubblica Generica GNU insieme ad Installazione-artix-ita. In caso contrario, vedere <https://www.gnu.org/licenses/>.
 
 confirm_password () {
     local pass1="a"
@@ -29,13 +14,13 @@ confirm_password () {
     echo $pass2
 }
 
-# Caricamento keymap
-sudo loadkeys us
+# Caricamento keymap italiano
+sudo loadkeys it
 
 # Controllo la modalità di avvio
 [[ ! -d /sys/firmware/efi ]] && printf "Not booted in UEFI mode. Aborting..." && exit 1
 
-# Scelta my_init
+# Scelta my_init (openrc/dinit)
 until [[ $my_init == "openrc" || $my_init == "dinit" ]]; do
     printf "Init system (openrc/dinit): " && read my_init
     [[ ! $my_init ]] && my_init="openrc"
@@ -101,7 +86,7 @@ do
     [[ $my_hostname ]] && break
 done
 
-# Utente
+# Password di root
 root_password=$(confirm_password "root password")
 
 installvars () {
