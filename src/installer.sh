@@ -1,9 +1,6 @@
 #!/bin/sh -e
 #
-# Un installer per Artix Linux
-# 
-# Copyright (c) 2022 Aya Corona
-#
+# Copyleft (ↄ) Aya Corona 2022
 # Licenza Pubblica Generale GNU General Public License
 
 # Partizione disco
