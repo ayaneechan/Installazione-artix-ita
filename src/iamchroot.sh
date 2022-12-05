@@ -1,9 +1,6 @@
 #!/bin/sh -e
 #
-# Un installer per Artix Linux
-# 
 # Copyright (c) 2022 Aya Corona
-#
 # Licenza Pubblica Generale GNU General Public License
 
 # Settaggio data & ora
