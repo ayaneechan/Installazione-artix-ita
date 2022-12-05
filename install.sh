@@ -1,9 +1,6 @@
 #!/bin/sh -e
 #
-# Un installer per Artix Linux
-# 
-# Copyright (c) 2022 Aya Corona
-#
+# Copyleft (ↄ) Aya Corona 2022
 # Licenza Pubblica Generale GNU General Public License
 
 confirm_password () {
@@ -19,7 +16,7 @@ confirm_password () {
 }
 
 # Caricamento keymap italiano
-sudo loadkeys us
+sudo loadkeys it
 
 # Controllo la modalità di avvio
 [[ ! -d /sys/firmware/efi ]] && printf "Not booted in UEFI mode. Aborting..." && exit 1
