@@ -42,8 +42,6 @@ dumpkeys_charset=""
 ```
 È utile anche impostare /etc/vconsole.conf, che può essere simile a questo: 
 ```
- # FONT_MAP=8859-1_to_uni
- # FONT=lat1-16
  KEYMAP=it
 ```
 ## Partitione del disco (BIOS)
@@ -92,14 +90,79 @@ Per controllo
 ```
  ping artixlinux.org
 ```
-Installare il sistema di base
-```
- basestrap /mnt base base-devel openrc elogind-openrc
-```
-Aggiornare l'orologio di sistema
+### Aggiornare l'orologio di sistema
+Attivare il demone NTP per sincronizzare l'orologio in tempo reale del computer
 ```
  rc-service ntpd start
 ```
+### Installare il sistema di base
+Usare basestrap per installare i pacchetti base e l'init preferito `openrc`
+```
+ basestrap /mnt base base-devel openrc elogind-openrc
+```
+In caso di errori usare
+```
+ basestrap -i /mnt base
+```
+### Installare il kernel
+Disponibili sono: `linux` `linux-lts` `linux-zen`
+```
+ basestrap /mnt linux linux-headers linux-firmware
+```
+Generate `/etc/fstab`; verificate anche le partizioni `root` `swap` `ecc`
+```
+ fstabgen -U /mnt >> /mnt/etc/fstab      
+```
+Montare la partizione di root
+```
+ artix-chroot /mnt
+```
+## Configurare il sistema di base
+### Configurare l'orologio di sistema
+Settare il fuso orario
+```
+ ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+```
+Generare `/etc/adjtime` con
+```
+hwclock --systohc
+```
+### Localizzazione
+Installare un text editor
+```
+ pacman -S nano
+```
+Decommentare il locale desiderato
+```
+nano /etc/locale.gen
+```
+Generare il locale
+```
+ locale-gen
+```
+Per impostare il locale a livello di sistema, creare o modificare /etc/locale.conf
+```
+ export LANG="it_IT.UTF-8"
+ export LC_COLLATE="C"
+```
+### Bootloader
+Installare `grub`; in presenza di alti OS `os-prober`
+```
+ pacman -S grub ~os-prober~ efibootmgr
+```
+```
+ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub 
+```
+
+
+
+
+
+
+
+
+
+
 ### togliere immediatamente la chiavetta usb *consigliato
 
 # Configurazione post-installazione
