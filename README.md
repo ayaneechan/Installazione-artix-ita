@@ -45,6 +45,7 @@ dumpkeys_charset=""
  KEYMAP=it
 ```
 ## Partitione del disco (BIOS)
+### Controllare i dischi disponibili con: `lsblk`
 ### Partizionare il disco rigido cfdisk: (es. /dev/sda ; /dev/nvme0n1 ; /dev/nvme0n1p1)
 - 512MB Efi system  (*minimo)
 - 4GB swap          (*minimo)
