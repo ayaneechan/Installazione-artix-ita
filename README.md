@@ -148,11 +148,38 @@ Per impostare il locale a livello di sistema, creare o modificare /etc/locale.co
 ### Bootloader
 Installare `grub`; in presenza di alti OS `os-prober`
 ```
- pacman -S grub ~os-prober~ efibootmgr
+ pacman -S grub efibootmgr
 ```
+In presenza di alti OS installare `os-prober`
+```
+pacman -S os-prober
+```
+Per sistemi UEFI
 ```
  grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub 
 ```
+Per sistemi BIOS
+```
+ grub-install --recheck /dev/sda        
+```
+### Abilitare i microcode `intel` o `amd` in base al vostro processore
+Intel `pacman -S intel-ucode`
+AMD `pacman -S amd-ucode`
+### Utenti
+Password di root 
+```
+ passwd
+```
+Creare un utente regolare es. UTENTE
+```
+ useradd -mG wheel UTENTE
+```
+Impostare la password
+```
+ passwd UTENTE
+```
+### Configurazione di rete
+
 
 
 
