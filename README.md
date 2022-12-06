@@ -9,7 +9,7 @@
 
 ### Aquisire lo script di installazione, estrarre ed entrare nella cartella estratta
 ```
-curl -OL https://github.com/ayaneechan/artix-ita/archive/v1.1.tar.gz
+curl -OL https://github.com/ayaneechan/artix-ita/archive/v1.2.tar.gz
 ```
 ```
 tar xzf v1.2.tar.gz
