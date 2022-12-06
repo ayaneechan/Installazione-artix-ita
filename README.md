@@ -184,6 +184,11 @@ Impostare la password
 ```
  passwd UTENTE
 ```
+Aggiungere i permessi di root
+```
+EDITOR=nano visudo
+```
+#Togliere il cancelletto da %wheel ALL=(ALL) ALL
 ### Configurazione di rete
 
 
@@ -247,18 +252,7 @@ sudo pacman dialog dosfstools
 ```
 pacman -S pipewire pipewire-pulse alsa-utils
 ```
-### Aggiungere proprio utente (es. sonozoccola)
-```
-useradd -mG wheel sonozoccola
-```
-```
-passwd sonozoccola
-```
-### Aggiungere i permessi di root
-```
-EDITOR=nano visudo
-```
-### Togliere il cancelletto da %wheel ALL=(ALL) ALL
+
 
 ### Installiamo la parte grafica; se sapete cosa state facendo potete non installare alcuni paccheti inutili (altrimenti no)
 ```
