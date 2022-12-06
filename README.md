@@ -162,9 +162,15 @@ Per sistemi BIOS
 ```
  grub-install --recheck /dev/sda        
 ```
-### Abilitare i microcode `intel` o `amd` in base al vostro processore
-Intel `pacman -S intel-ucode`
-AMD `pacman -S amd-ucode`
+### Abilitare i microcode `INTEL` o `AMD` in base al vostro processore
+INTEL
+```
+pacman -S intel-ucode
+```
+AMD 
+```
+pacman -S amd-ucode
+```
 ### Utenti
 Password di root 
 ```
