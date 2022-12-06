@@ -12,10 +12,10 @@
 curl -OL https://github.com/ayaneechan/artix-ita/archive/v1.1.tar.gz
 ```
 ```
-tar xzf v1.1.tar.gz
+tar xzf v1.2.tar.gz
 ```
 ```
-cd artix-ita-1.1.tar.gz
+cd artix-ita-1.2
 ```
 ```
 bash ./install.sh
@@ -24,8 +24,23 @@ ora aspettate (deve scaricare tutti i pacchetti), infine riavviate
 ```
 sudo reboot
 ```
-### Primo avvio
-Impostate lightdm
+## Configurazione post-installazione
+### Per loggare 
+>Utente=root <br />
+>Password=la vostra password
+Aggiungere proprio utente (es. sonozoccola)
+```
+useradd -mG wheel sonozoccola
+```
+```
+passwd sonozoccola
+```
+Aggiungere i permessi di root al vostro utente
+```
+EDITOR=nano visudo
+```
+Togliere il cancelletto da %wheel ALL=(ALL) ALL
+### Impostate l'ambiente grafico
 ```
 sudo rc-update add lightdm default
 ```
@@ -33,11 +48,7 @@ Riavvio
 ```
 sudo reboot
 ```
-## Configurazione post-installazione
-### Per loggare 
->Utente=root <br />
->Password=la vostra password
-### Ora entrate nel terminale per le ultime configurazioni
+### Dopo aver loggato , entrate nel terminale per le ultime configurazioni
 Aprite il file di configurazione di pacman
 ```
 sudo nano /etc/pacman.conf
@@ -77,22 +88,7 @@ Aggiornare le repo
 ```
 sudo pacman -Syu 
 ```
-Installare un text editor (artix consiglia 'nano')
-```
-sudo pacman -S nano
-```
-Aggiungere proprio utente (es. sonozoccola)
-```
-useradd -mG wheel sonozoccola
-```
-```
-passwd sonozoccola
-```
-Aggiungere i permessi di root al vostro utente
-```
-EDITOR=nano visudo
-```
-Togliere il cancelletto da %wheel ALL=(ALL) ALL
+
 ## Alcuni programmi utili:
 ### Gnome disks (gestione dischi)
 ```
