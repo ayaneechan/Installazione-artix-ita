@@ -61,6 +61,6 @@ mount $part1 /mnt/boot
 [[ $(grep 'vendor' /proc/cpuinfo) == *"Amd"* ]] && ucode="amd-ucode"
 
 # Installazione sistema e kernel
-basestrap /mnt base base-devel $my_init elogind elogind-$my_init $fs_pkgs efibootmgr grub $ucode dhcpcd wpa_supplicant connman-$my_init pipewire pipewire-pulse alsa-utils xorg xf86-video-amdgpu lightdm-openrc lightdm-gtk-greeter mate mate-extra system-config-printer connman-gtk dialog dosfstools
+basestrap /mnt base base-devel $my_init elogind elogind-$my_init $fs_pkgs efibootmgr grub $ucode dhcpcd wpa_supplicant connman-$my_init pipewire pipewire-pulse alsa-utils xorg xf86-video-amdgpu lightdm lightdm-openrc lightdm-gtk-greeter mate mate-extra system-config-printer connman-gtk epiphany nano dialog dosfstools
 basestrap /mnt linux-zen linux-zen-headers linux linux-headers linux-firmware mkinitcpio
 fstabgen -U /mnt > /mnt/etc/fstab
