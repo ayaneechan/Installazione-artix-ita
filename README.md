@@ -25,9 +25,7 @@ ora aspettate (deve scaricare tutti i pacchetti), infine riavviate
 sudo reboot
 ```
 ## Configurazione post-installazione
-### Per loggare 
->Utente=root <br />
->Password=la vostra password
+### Per loggare; Utente `root`, Password `la vostra password`
 Aggiungere proprio utente (es. sonozoccola)
 ```
 useradd -mG wheel sonozoccola
