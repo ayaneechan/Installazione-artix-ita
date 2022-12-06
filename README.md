@@ -99,7 +99,7 @@ Attivare il demone NTP per sincronizzare l'orologio in tempo reale del computer
 ### Installare il sistema di base
 Usare basestrap per installare i pacchetti base e l'init preferito `openrc`
 ```
- basestrap /mnt base base-devel openrc elogind-openrc
+ basestrap /mnt base base-devel openrc elogind elogind-openrc
 ```
 In caso di errori usare
 ```
@@ -191,22 +191,52 @@ EDITOR=nano visudo
 ```
 #Togliere il cancelletto da %wheel ALL=(ALL) ALL
 ### Configurazione di rete
-
-
-
-
-
-
-
-
-
-
-
-### togliere immediatamente la chiavetta usb *consigliato
-
-# Configurazione post-installazione
-
-### Modificare il file e aggiungere le repo dopo [galaxy] | basta un server solo
+Creare documento di host `nano /etc/hostname`
+```
+ vostrohostname
+```
+Modificare gli host `nano /etc/hosts`
+```
+ 127.0.0.1        localhost
+ ::1              localhost
+ 127.0.1.1        vostrohostname.localdomain  vostrohostname
+```
+Modificare le configurazioni `/etc/conf.d/hostname`
+```
+hostname='vostrohostname'
+```
+Installare il client DHCP e le connessioni wireless
+```
+ pacman -S dhcpcd wpa_supplican
+```
+Installare connman
+``` 
+pacman -S connman-openrc connman-gtk
+```
+Aggiungere il servizio
+```
+ rc-update add connmand
+```
+### Riavviare il sistema
+Uscire da chroot
+```
+exit
+```
+Smontare il sistema
+```
+umount -R /mnt
+```
+Riavvio
+```
+reboot
+```
+## Configurazione post-installazione
+### Aggiungere le repo universe
+Modificare `/etc/pacman.conf`
+```
+sudo nano /etc/pacman.conf
+```
+In fondo al file aggiungere:
 ```
 [universe]
 Server = https://universe.artixlinux.org/$arch
@@ -216,19 +246,19 @@ Server = https://artixlinux.qontinuum.space/artixlinux/universe/os/$arch
 Server = https://mirror1.cl.netactuate.com/artix/universe/$arch
 Server = https://ftp.crifo.org/artix-universe/
 ```
-### Aggiornare le repo
+Aggiornare le repo
 ```
 sudo pacman -Syu 
 ```
-### Aggiungere il supporto ad arch
+Aggiungere il supporto ad arch
 ```
 sudo pacman -S artix-archlinux-support
 ```
-## aggiungere le repo di https://wiki.artixlinux.org/Main/Repositories
+Aggiungere le repo di arch
 ```
 sudo nano /etc/pacman.conf
 ```
-### aggiungere in fondo al file o dopo le repo #Artix per non creare confusione
+In fondo al file aggiungere:
 ```
 #Archlinux
 [extra]
@@ -237,34 +267,23 @@ Include = /etc/pacman.d/mirrorlist-arch
 [community]
 Include = /etc/pacman.d/mirrorlist-arch
 ```
-### Aggiornare le repo
+Aggiornare le repo
 ```
 sudo pacman -Syu 
 ```
-### Installare un text editor (artix consiglia 'nano')
-```
-sudo pacman -S nano
-```
-### Per sicurezza installare questi pacchetti
-```
-sudo pacman dialog dosfstools 
-```
-### Installare le utility audio
+Installare le utility audio
 ```
 pacman -S pipewire pipewire-pulse alsa-utils
 ```
-
-
-### Installiamo la parte grafica; se sapete cosa state facendo potete non installare alcuni paccheti inutili (altrimenti no)
+Installare l'ambiente grafico
 ```
-sudo pacman -S xorg xf86-video-amdgpu lightdm-openrc lightdm-gtk-greeter mate mate-extra system-config-printer connman-gtk
+sudo pacman -S xorg xf86-video-amdgpu lightdm lightdm-openrc lightdm-gtk-greeter mate mate-extra system-config-printer connman-gtk
 ```
-### Attivate il vostro display manager
+Attivate il vostro display manager
 ```
 sudo rc-update add lightdm default
 ```
-
-# Riavviate e divertitevi
+### Riavviate e divertitevi
 ## Alcuni programmi utili:
 ### Gnome disks (gestione dischi)
 ```
