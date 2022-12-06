@@ -1,9 +1,10 @@
 # ARTIX INSTALLAZIONE MANUALE [![](https://img.shields.io/badge/Artix-Linux%20OS-blue?style=for-the-badge&logo=Artix+Linux)](https://artixlinux.org/)
  ### OpenRc | ext4 | mate-desktop | Copyleft (ↄ) Aya Corona 2022
 
-## Nuova installazione di Artix da un supporto avviabile
+## Prerequisiti:
 
-Artix può essere installato tramite la console o installer. L'installazione tramite installer è abbastanza semplice, ma noi effettueremo la procedura di installazione tramite console. Le immagini di installazione sono confermate per funzionare sia su sistemi BIOS che UEFI. 
+- Live-usb con artix (https://artixlinux.org/download.php) User `artix` Password `artix`
+- Connessione ad internet 
 
 ### Impostare il layout della tastiera
 Per verificare i tipi di layout disponibili: 
